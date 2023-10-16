@@ -1,0 +1,22 @@
+<?php require 'templates/header.phtml' ?>
+
+
+<?php foreach ($camiseta as $camiseta) : ?>
+<main class="container mt-5">
+    <section class="noticia">
+        <h1 class="mb-5"><?= $camiseta->nombre_equipo ?></h1>
+        <p class="lead mt-3"><?=$camiseta->categoria_camiseta ?></p>
+        <p>Decada de los <?= $camiseta->numero_decada ?>s</p>
+        <div class="img" >
+        <img class="noticia-image" src="https://templofutbol.vtexassets.com/arquivos/ids/16110111/GB1296-A.jpg?v=638202867747670000" alt="...">
+
+        </div>
+        
+    </section>
+    </main>
+</ul>
+<?php endforeach ?>
+
+
+
+<?php require 'templates/footer.phtml' ?>
