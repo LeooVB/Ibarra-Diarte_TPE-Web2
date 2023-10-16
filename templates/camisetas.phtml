@@ -1,0 +1,36 @@
+<?php require 'templates/header.phtml' ?>
+
+
+
+<ul class="list-group">
+    <div class="title text-center">
+        <h1>CAMISETAS</h1>
+
+    </div>
+
+    <?php foreach ($camisetas as $camiseta) : ?>
+        <div class="container">
+            <div class="row ">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://templofutbol.vtexassets.com/arquivos/ids/16110111/GB1296-A.jpg?v=638202867747670000" class="card-img-top" alt="imagen de tarjeta">
+                    <div class="card-body">
+                        <h1><?= $camiseta->nombre_equipo ?></h1>
+                        <h3><?= $camiseta->categoria_camiseta ?></h3>
+                        <h6><?= $camiseta->tipo_camiseta ?></h6>
+                        <p class="card-text">
+                            Esta es la camiseta del <?= $camiseta->categoria_camiseta ?> <?= $camiseta->nombre_equipo ?> en la decada de los <?= $camiseta->numero_decada ?>s
+                        </p>
+                        <a href='camiseta/<?=$camiseta->id?>' class="btn btn-primary">Ver mas</a>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+        </div>
+    <?php endforeach ?>
+</ul>
+
+
+
+
+<?php require 'templates/footer.phtml' ?>
