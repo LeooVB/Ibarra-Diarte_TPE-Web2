@@ -1,23 +1,117 @@
-.item-task {
+
+.flex {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.item-task.finalizada {
-    opacity: 0.5;
-    text-decoration: line-through;
+element.style {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-body {
-    background-color: aqua;
-}
-.navbar{
-    background-color: aqua;
 
-}
 .lista  b {
     color: aqua;
 }
-a{
+a {
     text-decoration: none;
+    color: #020202;
+}
+body{
+    background: -webkit-linear-gradient(to right, #ffffff, #303030); 
+    background: linear-gradient(to right, #020202, #303030); 
+    padding-top: 50px;
+      
+      font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-size: 35px;
+    letter-spacing: 5px;
+    color:#ffffff;
+    
+    font-family: 'Staatliches', cursive;
+    margin-bottom: 25px;
+}
+p {
+    font-size: 16px;
+    color: #cccccc;
+    margin-bottom: 45px;
+}
+h4{
+    color: #cccccc;
+    margin-bottom: 25px;
+}
+.img img.noticia-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
+}
+
+
+div .tarjetas{
+    width: 18rem;
+    padding: 15px;
+    margin: auto;
+   
+
+}
+.card{
+    width: 18rem;
+    
+    
+}
+label {
+    color: #ffffff;
+    padding: 10px;
+}
+form{
+    
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}
+div.form-group{
+    padding: 5px;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    color: #ffffff;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    color: #ffffff;
+}
+
+
+.table-responsive {
+    width: 100%;
+    height: 100%;
+    padding-left: 2px;
+    margin: auto;
+}
+button.btn {
+    width: 100%;
+    padding: 5px;
+    margin: initial;
+    /* display: block; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* margin-top: 5px; */
+    color: #ffffff;
+}
+form.formbtn {
+    width: 100%;
+    padding: 5px;
+    margin: initial;
+    /* display: block; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* margin-top: 5px; */
+    color: #ffffff; 
 }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2023 a las 23:22:45
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 17-10-2023 a las 00:50:32
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,16 +33,18 @@ CREATE TABLE `camisetas` (
   `categoria_camiseta` varchar(50) NOT NULL,
   `tipo_camiseta` varchar(50) NOT NULL,
   `id_decada` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `camisetas`
 --
 
 INSERT INTO `camisetas` (`id`, `nombre_equipo`, `categoria_camiseta`, `tipo_camiseta`, `id_decada`) VALUES
-(0, 'Francia', 'Seleccion', 'Titular', 90),
-(91, 'Brasil', 'Seleccion', 'Titular', 2000),
-(92, 'Barcelona', 'Club', 'Titular', 80);
+(0, 'Francia', 'Seleccion', 'Titular', 4),
+(91, 'Brasil', 'Seleccion', 'Titular', 5),
+(92, 'Barcelona', 'Club', 'Titular', 3),
+(93, 'Alemania', 'Seleccion', 'Alternativa', 1),
+(94, 'Paraguay', 'Seleccion', 'Alternativa', 5);
 
 -- --------------------------------------------------------
 
@@ -51,21 +53,21 @@ INSERT INTO `camisetas` (`id`, `nombre_equipo`, `categoria_camiseta`, `tipo_cami
 --
 
 CREATE TABLE `decadas` (
-  `id` int(11) NOT NULL,
+  `id_decada` int(11) NOT NULL,
   `numero_decada` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `decadas`
 --
 
-INSERT INTO `decadas` (`id`, `numero_decada`) VALUES
-(60, 60),
-(70, 70),
-(80, 80),
-(90, 90),
-(2000, 2000),
-(2010, 2010);
+INSERT INTO `decadas` (`id_decada`, `numero_decada`) VALUES
+(1, 60),
+(2, 70),
+(3, 80),
+(4, 90),
+(5, 2000),
+(6, 2010);
 
 -- --------------------------------------------------------
 
@@ -77,7 +79,7 @@ CREATE TABLE `usuarios` (
   `id_usuario` int(250) NOT NULL,
   `nombre_usuario` int(50) NOT NULL,
   `contraseña` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
@@ -94,7 +96,7 @@ ALTER TABLE `camisetas`
 -- Indices de la tabla `decadas`
 --
 ALTER TABLE `decadas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_decada`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -110,13 +112,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `camisetas`
 --
 ALTER TABLE `camisetas`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `decadas`
 --
 ALTER TABLE `decadas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2012;
+  MODIFY `id_decada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2012;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -132,7 +134,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `camisetas`
 --
 ALTER TABLE `camisetas`
-  ADD CONSTRAINT `decadas_id` FOREIGN KEY (`id_decada`) REFERENCES `decadas` (`id`);
+  ADD CONSTRAINT `decadas_id` FOREIGN KEY (`id_decada`) REFERENCES `decadas` (`id_decada`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

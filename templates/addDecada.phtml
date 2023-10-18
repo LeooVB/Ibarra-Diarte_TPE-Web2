@@ -1,0 +1,14 @@
+<?php require 'templates/header.phtml' ?>
+
+<h1>Agregar Camisetas</h1>
+<form method='POST' action='add-decada'>
+
+    <div class="form-group">
+        <label for="decada">Numero decada</label>
+        <input type="text" class="form-control" id="decada" name='decada' placeholder="Ingrese una decada">
+        <a href='camiseta/<?= $camiseta->id ?>   ' type="button" class="btn btn-primary" data-toggle="modal" data-target="editChildresn">Modificar </a>
+    </div>
+
+ </form>
+
+ <?php require 'templates/footer.phtml' ?>
