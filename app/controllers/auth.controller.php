@@ -1,6 +1,8 @@
 <?php
 include_once './app/views/auth.view.php';
 include_once './app/models/user.model.php';
+include_once './app/helper/auth.helper.php';
+
 class authController{
     private $view;
     private $model;
@@ -10,9 +12,6 @@ class authController{
         $this->model = new UserModel();
 
     }
-    
-        
-    
 
     public function ShowLogin(){
         $this->view->ShowFormLogin();
@@ -25,10 +24,14 @@ class authController{
             echo 'error';
         }
         $user = $this->model->getUserByName($usuario);
-        if($user && $user->password == md5($password)){
-            echo 'logueado';
-
+        if($user && password_verify($password,$user->contrasenia)){
+            AuthHelper::login($user);
+        header('location: ' . BASE_URL);
         }else 
         echo 'no existe';
+    }
+    public function Logout(){
+        AuthHelper::logout();
+        header('location: ' . BASE_URL);
     }
 }

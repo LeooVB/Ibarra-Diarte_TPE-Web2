@@ -1,15 +1,14 @@
-<?php require 'templates/header.phtml' ?>
 
+<?php
+    if (isset($_SESSION['id_usuario'])){
+?>
 <h1>Agregar Camisetas</h1>
-
-
 <form method='POST' action='add-camiseta'>
         <?php require 'templates/form.admin.phtml'?>
             <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
     </div>
 </form>
-
 <div class="conteiner-modal">
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
@@ -49,12 +48,6 @@
         </table>
     </div>
 </div>
-
-
-
-
-
-
-
-
-<?php require 'templates/footer.phtml' ?>
+<?php
+}
+?>

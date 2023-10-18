@@ -1,12 +1,8 @@
 <?php
+require_once 'model.php';
 
-class CamisetasModel{
-    private $db;
-
-function __construct(){
-    $this->db = new PDO('mysql:host=localhost;dbname=db_camisetas;charset=utf8', 'root', '');
-}
-
+class CamisetasModel extends Model{
+    protected $db;
 
 function getcamisetas(){
     $query = $this->db->prepare('SELECT * FROM camisetas JOIN decadas ON camisetas.id_decada=decadas.id_decada');
@@ -40,9 +36,8 @@ public function deleteCamisetaById($id){
 }
 function editCamisetaById($id){
 
-  $query = $this->db->prepare('UPDATE camisetas SET nombre_equipo=?, categoria_camiseta=?, tipo_camiseta=?, id_decada=?, imagen=? WHERE camisetas.id=?');
-    $query->execute([$_POST['nombreCamiseta'], $_POST['categoriaCamiseta'], $_POST['tipoCamiseta'], $_POST['idCamiseta'], $_POST['imagen'], $id]);
-}
+    $query = $this->db->prepare('UPDATE camisetas SET nombre_equipo=?, categoria_camiseta=?, tipo_camiseta=?, id_decada=?, imagen=? WHERE camisetas.id=?');
+      $query->execute([$_POST['nombreCamiseta'], $_POST['categoriaCamiseta'], $_POST['tipoCamiseta'], $_POST['idCamiseta'], $_POST['imagen'], $id]);
+  }
 
 }
-

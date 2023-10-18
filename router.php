@@ -2,6 +2,7 @@
 require_once './app/controllers/decadas.controller.php';
 require_once './app/controllers/camisetas.controller.php';
 require_once './app/controllers/auth.controller.php';
+require_once './app/helper/auth.helper.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 $action = 'home';
@@ -25,6 +26,11 @@ switch ($params[0]){
         $controller->ShowLogin();
         break;
 
+    case 'logout':
+        $authController = new AuthController();
+        $authController->logout();
+        break;
+
     case 'verify':
         $controller = new authController();
         $controller->VerifyUser();
@@ -41,24 +47,28 @@ switch ($params[0]){
         break;
         
     case 'decada' :
-            $controller = new CamisetasController();
-            $controller->ShowCamisetasByDecada($params[1]);
-            break;    
+        $controller = new CamisetasController();
+        $controller->ShowCamisetasByDecada($params[1]);
+        break;    
     case 'add-camiseta' :
         $controller = new CamisetasController();
         $controller->addCamiseta();
         break;
     case 'delete' :
-            $controller = new CamisetasController();
-            $controller->deleteCamisetaById($params[1]);
-            break;
+        $controller = new CamisetasController();
+        $controller->deleteCamisetaById($params[1]);
+        break;
     case 'edit' :
         $controller = new CamisetasController();
         $controller->editCamisetaById($params[1]);
     case 'add-decada' :
-            $controller = new CamisetasController();
-            $controller->addDecada();
-            break;
+        $controller = new DecadasController();
+        $controller->addDecada();
+        break;
+    case 'edit-decadas' :
+        $controller = new DecadasController();
+        $controller->editDecada($params[1]);
+        break;
     default: 
          echo "404 Page Not Found";
          break;
