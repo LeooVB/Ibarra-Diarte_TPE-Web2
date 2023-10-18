@@ -15,16 +15,26 @@
         </section>
     </main>
     </ul>
+    <?php endforeach ?>
+    <?php
+    if (isset($_SESSION['id_usuario'])){
+    ?>
 
-    <form method='POST' action='edit/<?= $camiseta->id ?>'>
+    
+<form method='POST' action='edit/<?= $camiseta->id ?>'>
 
-        <?php require 'templates/form.admin.phtml' ?>;
+<?php require 'templates/form.admin.phtml' ?>;
         <button type="submit" class="btn btn-primary">Editar</button>
         </div>
-        </div>
-    </form>
-<?php endforeach ?>
+</div>
+</form>
 
+
+
+
+<?php
+    }
+    ?>
 
 
 <?php require 'templates/footer.phtml' ?>

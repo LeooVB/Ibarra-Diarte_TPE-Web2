@@ -1,13 +1,13 @@
 <?php require 'templates/header.phtml' ?>
 
-    <form method="$_POST" action="verify">
+    <form method="POST" action="verify">
         <div class="form-group">
-            <label >Nombre de Usuario</label>
+            <label for="usuario">Nombre de Usuario</label>
             <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp" placeholder="Ingrese su nombre de usuario">
 
         </div>
         <div class="form-group">
-            <label >Contraseña</label>
+            <label for="password">Contraseña</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
         </div>
 

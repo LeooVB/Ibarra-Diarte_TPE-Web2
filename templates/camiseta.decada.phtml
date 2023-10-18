@@ -30,6 +30,21 @@
 
 
         <?php endforeach ?>
+        <?php
+    if (isset($_SESSION['id_usuario'])){
+?>
+        <h1>Editar Decadas</h1>
+            <form method='POST' action='edit-decadas/<?=$decada->id_decada?>'>
+
+             <?php require 'templates/FormDecada.phtml' ?>
+
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="editChildresn">Editar </button>
+    </div>
+
+ </form>
+<?php
+}
+?>
     </div>
 </ul>
 

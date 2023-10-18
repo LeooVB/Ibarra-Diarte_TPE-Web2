@@ -2,7 +2,7 @@
 
 include_once './app/models/camisetas.model.php';
 include_once './app/views/camisetas.view.php';
-include_once './app/models/decadas.model.php';
+include_once './app/helper/auth.helper.php';
 
 class CamisetasController
 {
@@ -12,6 +12,7 @@ class CamisetasController
 
     public function __construct()
     {
+        AuthHelper::verify();
         $this->model = new CamisetasModel();
         $this->modelDecada = new DecadasModel();
         $this->view = new CamisetasView();
@@ -37,15 +38,18 @@ class CamisetasController
     }
     public function ShowCamisetasByDecada($id)
     {
+
         $camisetas = $this->model->getCamisetasByDecada($id);
+        $decada=$this->model->getDecadaById($id);
         if ($camisetas) {
-            $this->view->ShowCamisetasByDecada($camisetas);
+            $this->view->ShowCamisetasByDecada($camisetas,$decada);
         } else {
             echo ('404 - Not Found: El equipo seleccionado no existe.');
         }
     }
     public function addCamiseta()
     {
+    
         if (empty($_POST['nombreCamiseta']) || empty($_POST['categoriaCamiseta']) || empty($_POST['tipoCamiseta']) || empty($_POST['idCamiseta']) || empty($_POST['imagen'])) {
             echo 'error';
             die();
@@ -55,6 +59,7 @@ class CamisetasController
     }
     public function deleteCamisetaById($id)
     {
+    
      
       if ($id !== null) {
             $result = $this->model->deleteCamisetaById($id);
