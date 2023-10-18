@@ -1,0 +1,60 @@
+<?php require 'templates/header.phtml' ?>
+
+<h1>Agregar Camisetas</h1>
+
+
+<form method='POST' action='add-camiseta'>
+        <?php require 'templates/form.admin.phtml'?>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
+    </div>
+</form>
+
+<div class="conteiner-modal">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre equipo</th>
+                    <th scope="col">Tipo Camiseta</th>
+                    <th scope="col">Categoria Camiseta</th>
+                    <th scope="col">imagen</th>
+                    <th scope="col">id decada</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <?php foreach ($camisetas as $camiseta) : ?>
+                <tbody>
+                    <tr>
+                        <td><?= $camiseta->nombre_equipo ?></td>
+                        <td><?= $camiseta->tipo_camiseta ?></td>
+                        <td><?= $camiseta->categoria_camiseta ?></td>
+                        <td><?= $camiseta->imagen ?></td>
+                        <td><?= $camiseta->id_decada ?></td>
+                        <td>
+                            <form class="formbtn" >      
+                            <a href='delete/<?= $camiseta->id ?>   ' type="button" class="btn btn-danger" data-toggle="modal" data-target="editChildresn">Delete </a>
+                            </form>
+
+                            <a href='camiseta/<?= $camiseta->id ?>   ' type="button" class="btn btn-primary" data-toggle="modal" data-target="editChildresn">Modificar </a>
+                               
+                          
+                        </td>
+                    </tr>
+                </tbody>
+            <?php endforeach ?>
+
+
+
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<?php require 'templates/footer.phtml' ?>

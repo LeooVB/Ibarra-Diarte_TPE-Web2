@@ -7,15 +7,14 @@
      <h1>DECADAS</h1>
 
     </div>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi itaque,
-     blanditiis sint animi enim non nisi quisquam, officia tenetur dolores doloribus tempore impedit 
-     quia repudiandae! Non accusamus quis dignissimos vero.</p>
+    <p>Bienvenidos a la pagina Museo de Camisetas, en esta pagina encontrara camisetas de todas las decadas en la historia del futbol</p>
+    <h4>Elija una decada para ver las camisetas de esa epoca</h4>
     <?php foreach ($decadas as $decada) : ?>
 
-        <li class="list-group-item list-group-item-action list-group-item-success d-flex justify-content-between">Decada de los:
+        <li class="list-group-item list-group-item-action  d-flex justify-content-between">Decada de los:
             <div>
 
-                <span class="badge bg-succes rounded-pill"> <a href='decada/<?=$decada->id_decada?>'><?= $decada->numero_decada ?>s</a></span>
+                <span class="decada"> <a href='decada/<?=$decada->id_decada?>'><?= $decada->numero_decada ?>s</a></span>
             </div>
 
         </li>

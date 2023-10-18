@@ -2,19 +2,27 @@
 
 
 <?php foreach ($camiseta as $camiseta) : ?>
-<main class="container mt-5">
-    <section class="noticia">
-        <h1 class="mb-5"><?= $camiseta->nombre_equipo ?></h1>
-        <p class="lead mt-3"><?=$camiseta->categoria_camiseta ?></p>
-        <p>Decada de los <?= $camiseta->numero_decada ?>s</p>
-        <div class="img" >
-        <img class="noticia-image" src="https://templofutbol.vtexassets.com/arquivos/ids/16110111/GB1296-A.jpg?v=638202867747670000" alt="...">
+    <main class="container mt-5">
+        <section class="noticia">
+            <h1 class="mb-5"><?= $camiseta->nombre_equipo ?></h1>
+            <p class="lead mt-3"><?= $camiseta->categoria_camiseta ?></p>
+            <p>Decada de los <?= $camiseta->numero_decada ?>s</p>
+            <div class="img">
+                <img class="noticia-image" src="<?= $camiseta->imagen ?>" alt="...">
 
-        </div>
-        
-    </section>
+            </div>
+
+        </section>
     </main>
-</ul>
+    </ul>
+
+    <form method='POST' action='edit/<?= $camiseta->id ?>'>
+
+        <?php require 'templates/form.admin.phtml' ?>;
+        <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+        </div>
+    </form>
 <?php endforeach ?>
 
 

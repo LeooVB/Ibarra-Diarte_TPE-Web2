@@ -2,12 +2,13 @@
 
 class CamisetasView{
 
-    function ShowCamisetas($camisetas){
+    function ShowCamisetas($camisetas, $decadas){
          
     require './templates/camisetas.phtml';
+    require './templates/addCamiseta.phtml';
          
     }
-    function ShowCamiseta($camiseta){
+    function ShowCamiseta($camiseta, $decadas){
          
         require './templates/camiseta.id.phtml';
              
